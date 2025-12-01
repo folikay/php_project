@@ -1,0 +1,156 @@
+<?php
+$heroImage = 'pix.jpg'; // to change my defult image, change the filename here
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <title>Hero animation demo</title>
+  <link rel="stylesheet" href="hero.css">
+</head>
+<body class="preload">
+      <!--logo header-->
+
+    <section class="logo">
+        <div><img src="logo.jpg" alt="osafem" width="30wv" height="30hv"></div>
+        <div class="icon">
+            <p class="p1">Have any Questions</p> <a href=""><i class="fa-solid fa-phone-volume"></i>
+            <p>+234-810-669-909</p></a></div>
+        <div class="icon1">
+            <div>
+                <p class="p1">our office address</p> <a href="update.html"><i class="fa-solid fa-location-dot"></i><p>plot 4, Ilorin</p></a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--nav-bar icon ,search button and list-->
+
+
+    <section class="nav" style="position: fixed; top: 20; width: 100%; z-index: 1001;">
+        <nav>
+
+            <ul class="dropdown-menu">
+                <li class="hasdropdown"><a >Home</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="index.html">dashboard</a></li>
+                        <li><a href="#">our story</a></li>
+                        <li><a href="#">mission and vision</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >About</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="about.html">testimonial</a></li>
+                        <li><a href="#">team profile</a></li>
+                        <li><a href="#">feedback</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >services</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="services.html">features and benefit</a></li>
+                        <li><a href="#">plan</a></li>
+                        <li><a href="#">case study</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >blog</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="hero.php">blog</a></li>
+                        <li><a href="blog.html">blog</a></li>
+                        <li><a href="https://punchng.com/inclusive-innovation-key-to-solving-infrastructure-challenges-engineers">blog</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >support</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="#">feedback</a></li>
+                        <li><a href="#">contact</a></li>
+                        <li><a href="#"> support center</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-icon">
+                <a href="https://www.facebook.com/oluwakunmioluwafemi"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/+2349066175355"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/osamfem_engineering"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/osam_fem"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search..." required>
+                <div class="search-icon">
+                    <svg xmlns="http://www.facebook.com/oluwakunmioluwafemi/" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                </div>
+            </div>
+
+
+            <!--comment for my media que...-->
+            <div class="link-container">
+                <div class="call"> <a href=""><i class="fa-solid fa-phone-volume"></i></a></div>
+
+
+
+
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="hero.php">blog</a></li>
+                <li><a href="#">support</a></li>
+            </ul>
+        </nav>
+
+    </section>
+  <main class="hero" data-hero="<?= htmlspecialchars($heroImage) ?>">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <!-- -->
+    <img class="hero-image" alt="Hero" src="" aria-hidden="true">
+
+ <div class="hero-heading">
+        <h1 class="title initial-slant">Welcome to Our Site</h1>
+        <button class="cta"><span>Get Started </span></button>
+      </div>
+
+    <div class="hero-content">
+      <div class="hero-body">
+        <p class="subtitle">We bring projects  to life — safe, on-time, and beautiful. <br>
+        High-quality construction solutions tailored to your needs. Reliable, safe, and timely delivery.</p>
+      </div>
+    </div>
+  </main>
+  <script>
+
+    // Small helper to run after DOM ready
+    document.addEventListener('DOMContentLoaded', function () {
+      const body = document.body;
+      const hero = document.querySelector('.hero');
+      const heroImageEl = document.querySelector('.hero-image');
+      const title = document.querySelector('.title');
+      const subtitle = document.querySelector('.subtitle');
+
+    
+      // counting image src and display after 1ms delay
+      const src = hero.getAttribute('data-hero');
+      const img = new Image();
+
+      let imgLoaded = false;
+      let showRequested = false;
+      const delayMs = 2 * 1000; // 2 second delay for my image to apper
+
+      function reveal() {
+        // to make my loadded image apper
+        heroImageEl.src = src;
+        heroImageEl.classList.add('visible');
+        
+        setTimeout(() => {
+  

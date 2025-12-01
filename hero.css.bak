@@ -1,0 +1,12 @@
+/* backup of hero.css */
+
+/* Beginning of hero.css backup */
+
+/* hero.css - clean demo styles for initial background, 10s delay, slide-in H1 and bend-in effect */
+
+ :root {
+    --bg-color: rgba(22, 22, 22, 0.5);
+    --text-color: #fff;
+}
+
+/* ... (full file backup omitted for brevity in this copy) */

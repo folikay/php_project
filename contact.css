@@ -1,0 +1,86 @@
+              :root {
+                 --bg-color: rgba(22, 22, 22, 0.5);
+                 --text-color: #fff;
+             }
+             /* section 1 */
+             
+             .container {
+                 display: flex;
+                 max-width: 1200px;
+                 margin: 180px auto;
+                 background: white;
+                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+             }
+             
+             .submitted-comment,
+             .all-comments {
+                 margin-top: 20px;
+                 clear: both;
+             }
+             
+             .image-section {
+                 flex: 1;
+                 background: #ddd;
+             }
+             
+             .image-section img {
+                 width: 100%;
+                 height: auto;
+             }
+             
+             .form-section {
+                 flex: 1;
+                 padding: 20px;
+             }
+             
+             h2 {
+                 margin-top: 0;
+             }
+             
+             form {
+                 display: flex;
+                 flex-direction: column;
+             }
+             
+             input,
+             textarea {
+                 margin-bottom: 10px;
+                 padding: 10px;
+                 border: 1px solid #ccc;
+                 border-radius: 4px;
+             }
+             
+             button {
+                 padding: 10px;
+                 background: #007bff;
+                 color: white;
+                 border: none;
+                 border-radius: 4px;
+                 cursor: pointer;
+             }
+             
+             button:hover {
+                 background: #0056b3;
+             }
+             
+             .success {
+                 color: green;
+                 margin-bottom: 10px;
+             }
+             
+             .error {
+                 color: red;
+                 margin-bottom: 10px;
+             }
+             
+             .comment-section {
+                 margin-top: 30px;
+                 border-top: 1px solid #ccc;
+                 padding-top: 20px;
+             }
+             
+             @media (max-width: 768px) {
+                 .container {
+                     flex-direction: column;
+                 }
+             }

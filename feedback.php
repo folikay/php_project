@@ -1,0 +1,486 @@
+<?php session_start(); ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <title>Hero animation demo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="feedback.css">
+</head>
+
+<body class="preload">
+      <!--logo header-->
+
+    <section class="logo">
+        <div><img src="logo.jpg" alt="osafem" width="30wv" height="30hv"></div>
+        <div class="icon">
+            <p class="p1">Have any Questions</p> <a href=""><i class="fa-solid fa-phone-volume"></i>
+            <p>+234-810-669-909</p></a></div>
+        <div class="icon1">
+            <div>
+                <p class="p1">our office address</p> <a href="update.html"><i class="fa-solid fa-location-dot"></i><p>plot 4, Ilorin</p></a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!--nav-bar icon ,search button and list-->
+
+
+    <section class="nav" style="position: fixed; top: 20px; width: 100%; z-index: 1001;">
+        <nav>
+
+            <ul class="dropdown-menu">
+                <li class="hasdropdown"><a >Home</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="index.html">dashboard</a></li>
+                        <li><a href="story.html">our story</a></li>
+                        <li><a href="testimonial.html">mission and vision</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >About</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="about.html">testimonial</a></li>
+                        <li><a href="team.html">team profile</a></li>
+                        <li><a href="feedback.php">feedback</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >services</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="services.html">features and benefit</a></li>
+                        <li><a href="plan.html">plan</a></li>
+                        <li><a href="case.html">case study</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >blog</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="hero.php">blog</a></li>
+                        <li><a href="blog.html">blog</a></li>
+                        <li><a href="https://punchng.com/inclusive-innovation-key-to-solving-infrastructure-challenges-engineers">blog</a></li>
+                    </ul>
+                </li>
+                <li class="hasdropdown"><a >support</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="feedback.php">feedback</a></li>
+                        <li><a href="contact.php">contact</a></li>
+                        <li><a href="support.php"> support center</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-icon">
+                <a href="https://www.facebook.com/oluwakunmioluwafemi"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/+2349066175355"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/osamfem_engineering"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/osam_fem"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search..." required>
+                <div class="search-icon">
+                    <svg xmlns="http://www.facebook.com/oluwakunmioluwafemi/" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                </div>
+            </div>
+
+
+            <!--comment for my media que...-->
+            <div class="link-container">
+                <div class="call"> <a href=""><i class="fa-solid fa-phone-volume"></i></a></div>
+
+
+
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+               <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">blog 2</a></li>
+                <li><a href="https://punchng.com/inclusive-innovation-key-to-solving-infrastructure-challenges-engineers">blog 3</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="plan.html">plan</a></li>
+                <li><a href="hero.php">blog 1</a></li>
+                <li><a href="story.html">our story</a></li>
+                <li><a href="testimonial.html">mission and vision</a></li>
+                <li><a href="team.html">team profile</a></li>
+                <li><a href="case.html">case study</a></li>
+                <li><a href="support.php">support</a></li>
+             <li><a href="contact.php">contact</a></li> 
+             <li><a href="feedback.php">feedback</a></li>
+            </ul>
+        </nav>
+
+    </section>
+<section class="receive-feedback">
+     <!-- Your existing HTML for feedback.php -->
+<div class="comments-display">
+    <h3>All Feedback Comments</h3>
+    <?php
+    if (file_exists('comments.txt')) {
+        $comments = file('comments.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        if (!empty($comments)) {
+            echo '<ul>';
+            foreach (array_reverse($comments) as $c) {
+                echo '<li>' . htmlspecialchars($c) . '</li>';
+            }
+            echo '</ul>';
+        } else {
+            echo '<p>No comments yet.</p>';
+        }
+    } else {
+        echo '<p>No comments file found.</p>';
+    }
+    ?>
+</div>
+</section>
+
+     <!--last part....-->
+
+    <!-- section 14-->
+    <section class="sectionsection">
+        <div class="section141">
+            <div class="section140-container">
+                <h1>
+                    About our company
+                    <hr>
+                </h1>
+                <p>folikay hand-coding theem is the last theme you will ever have<br> to buy for your business more powerful and easy to use than <br>any other themes on the market with incredible <br> features and friendly support.</p>
+
+                <div class="section114">
+                    <div class="map">
+                        <a href="update.html"><i class="fa-solid fa-location-dot"></i> Plot 4, Ilorin</a>
+                    </div>
+                    <div class="phone">
+                        <a href="tel:=2348106699096"><i class="fa-solid fa-phone-volume"></i>phone call</a></div>
+
+                    <div class="mail">
+                        <a href="mailto:graceoluwakunmi@gmail.com"><i class="fa-solid fa-envelope"></i>Email me</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section141-container">
+                <h1>
+                    Useful links
+                    <hr>
+                </h1>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Idustrial</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Our Reviews</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Environment</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Our Project</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> General Enquiries</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Get in Touch</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Support Center</p>
+                </a>
+            </div>
+            <div class="section142-container">
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Equipment </p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Construction</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>About Us</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Contact Us</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Schedule a callback</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i> Reviews</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Privacy Policy</p>
+                </a>
+            </div>
+            <div class="section143-container">
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Engineering </p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Factory Tools</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>News, Update</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Career Tips</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>General FAQ'S</p>
+                </a>
+                <a href="">
+                    <p><i class="fa-solid fa-link"></i>Other Services</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- section 15-->
+    <footer>
+        &copy; copyright <span id="year"></span> .Osamfem Industrial Solution |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a>
+
+        <div class="scroll-to-top">
+            <div class="arrow-icon"></div>
+
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-button" id="chatButton">
+                <i class="fas fa-comment-dots" id="chatIcon"></i>
+            </div>
+            <div class="chat-form" id="chatForm">
+                <div class="chat-header">
+                    <h3>Live Support</h3>
+                    <div class="typing-indicator">
+                        <span>Agent is typing</span>
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message incoming">
+                        <div>Hello! How can we help you today?</div>
+                        <div class="timestamp">Just now</div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message..." id="messageInput">
+                    <button class="send-button" id="sendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <section class="lastsection">
+        <div class="last1 active" onclick="setActive(this)">
+            <a href="#"> <i class="fas fa-home"></i>
+                <p>Home</p>
+            </a>
+        </div>
+        <div class="last1" onclick="setActive(this)">
+            <a href="#"><i class="fas fa-box"></i><p>Services</p></a>
+        </div>
+        <div class="last1" onclick="setActive(this)">
+            <a href="#"><i class="fas fa-question-circle"></i> <p>FAQ</p></a>
+        </div>
+        <div class="last1" onclick="setActive(this)">
+            <a href="#"> <i class="fas fa-phone-alt"></i>
+                <p>Call</p>
+            </a>
+        </div>
+        <div class="last1" onclick="setActive(this)">
+            <a href="#"> <i class="fas fa-envelope"></i>
+                <p>Contact</p>
+            </a>
+        </div>
+
+    </section>
+
+</body>
+
+
+<script>
+    // copy here
+
+    let isAgentOnline = true;
+    const chatButton = document.getElementById('chatButton');
+    const chatIcon = document.getElementById('chatIcon');
+    const chatForm = document.getElementById('chatForm');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const chatMessages = document.getElementById('chatMessages');
+    const typingIndicator = document.querySelector('.typing-indicator');
+    // Toggle chat form visibility
+    chatButton.addEventListener('click', () => {
+        chatForm.classList.toggle('active');
+
+        if (chatForm.classList.contains('active')) {
+            // Change to close icon when form is open
+            chatIcon.classList.remove('fa-comment-dots');
+            chatIcon.classList.add('fa-times');
+
+            // Move button slightly when form is open
+            chatButton.style.transform = 'translateX(-7px)';
+        } else {
+            // Change back to chat icon when form is closed
+            chatIcon.classList.remove('fa-times');
+            chatIcon.classList.add('fa-comment-dots');
+
+            // Return button to original position
+            chatButton.style.transform = '';
+        }
+    }); // Send message functionality
+    function sendMessage() {
+        const messageText = messageInput.value.trim();
+        if (messageText) {
+            // Create outgoing message
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message outgoing';
+            messageElement.innerHTML = `
+            <div>${messageText}</div>
+            <div class="timestamp">Just now</div>
+        `;
+            chatMessages.appendChild(messageElement);
+            // Clear input
+            messageInput.value = '';
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            // Show typing indicator
+            typingIndicator.style.display = 'flex';
+            // Simulate agent response after delay
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                simulateAgentResponse(messageText); // Call the new function here
+            }, 1500);
+        }
+    }
+
+    // Send message when clicking button
+    sendButton.addEventListener('click', sendMessage);
+
+    // Send message when pressing Enter
+    messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    // Scroll messages to bottom on initial load
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    function simulateAgentResponse(messageText) {
+        let response = "I'm not sure I understand. Can you please clarify your question?";
+        const lowerText = messageText.toLowerCase();
+
+        // Simple keyword-based response logic
+        if (lowerText.includes("hello") || lowerText.includes("hi") || lowerText.includes("hey")) {
+            response = "Hello! How can I assist you today?";
+        } else if (lowerText.includes("yes") || lowerText.includes("ok")) {
+            response = "1.about  2. services 3.contact us 4. location 5. price. enter your choice with format (e.g about us...) or type 'no' to exit.";
+        } else if (lowerText.includes("company") || lowerText.includes("about")) {
+            response = "We are Osamfem Industrial Solutions, specializing in industrial engineering and equipment relocation.";
+        } else if (lowerText.includes("price") || lowerText.includes("cost")) {
+            response = "Our pricing depends on your project needs. Would you like a quote?";
+        } else if (lowerText.includes("hours") || lowerText.includes("working hours")) {
+            response = "Our working hours are Monday to Friday, 9 AM to 5 PM.";
+        } else if (lowerText.includes("location") || lowerText.includes("address")) {
+            response = "Our office is located at Plot 4, Ilorin.";
+        } else if (lowerText.includes("services") || lowerText.includes("what do you offer")) {
+            response = "We offer industrial engineering, equipment relocation, and more.";
+        } else if (lowerText.includes("contact us") || lowerText.includes("get in touch")) {
+            response = "You can reach us at +234-810-669-909 or email graceoluwakunmi@gmail.com.";
+        } else if (lowerText.includes("no") || lowerText.includes("that's all") || lowerText.includes("nothing") || lowerText.includes("thanks")) {
+            response = "Thank you for checking our page.";
+        }
+
+        const responseElement = document.createElement('div');
+        responseElement.className = 'message incoming';
+        responseElement.innerHTML = `
+        <div>${response}</div>
+        <div class="timestamp">Just now</div>
+    `;
+        chatMessages.appendChild(responseElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+
+
+
+
+
+    //last section.......
+    function setActive(element) {
+
+        const items = document.querySelectorAll('.last1');
+        items.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        element.classList.add('active');
+    }
+
+    //footer style....
+
+    document.getElementById('year').innerHTML = new Date().getFullYear();
+    //scroll effect
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('active');
+            } else {
+                scrollToTopBtn.classList.remove('active');
+            }
+        });
+
+        // Scroll to top when clicked
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+
+    //Optional: You can add JavaScript to handle the select dropdown change ...section 1...
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    //for my search button
+
+    document.querySelector('.search-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const query = this.value.trim();
+            if (query) {
+                console.log('Searching for:', query);
+                alert(`Searching for: ${query}`);
+            }
+        }
+    })
+
+
+    //stop here
+</script>
+    </body>
+</html>

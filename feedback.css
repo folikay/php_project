@@ -1,0 +1,26 @@
+:root {
+    --bg-color: rgba(22, 22, 22, 0.5);
+    --text-color: #fff;
+}
+
+.receive-feedback {
+    max-width: 800px;
+    margin: 200px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.no-comments {
+    color: #666;
+}
