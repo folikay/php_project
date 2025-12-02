@@ -131,7 +131,7 @@
 
                 <div class="hamburger" id="hamburger">&#9776;</div>
             </div>
-            <ul class="nav-links" id="nav-links">
+            
                <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -861,4 +861,5 @@ document.addEventListener('DOMContentLoaded', function(){
     //stop here
 
 </script>
+
 </html>
