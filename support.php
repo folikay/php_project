@@ -105,7 +105,7 @@
 
                 <div class="hamburger" id="hamburger">&#9776;</div>
             </div>
-            <ul class="nav-links" id="nav-links">
+           
                <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -581,5 +581,6 @@ if (isset($_GET['query']) && !empty(trim($_GET['query']))) {
 
     //stop here
 </script>
+
 
     </html>
